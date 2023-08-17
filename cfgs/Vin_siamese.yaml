@@ -1,0 +1,22 @@
+Exp:
+  out_dir: "saved_models/Vin/siamese_CLRv2"
+  gpu: 0
+
+Model:
+  network: "siamese_CLRv2"  # AE, AE-U, MemAE
+  mp: 1  # multiplier that controls the capacity of AE
+  k : 1
+  ls: 2048 # the output size of encoder
+  mem_dim: Null
+  shrink_thres: Null
+
+Data:
+  dataset: "vin"  # rsna, vin
+  img_size: 224
+ 
+
+Solver:
+  bs: 64
+  lr: 1.0e-5
+  weight_decay: 0
+  num_epoch: 100
