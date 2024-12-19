@@ -41,8 +41,6 @@ if __name__ == "__main__":
     if not os.path.exists(out_dir):
         os.makedirs(out_dir)
 
-    #if opt.mode in ["siamese", "siamese_CLRv2","siamese_ReSSL", "siamese_CLRv2_barlow","siamese_CLRv2_hopfield","siamese_CLRv2_KNN", "barlow"]:
-
     if opt.mode =="train":
         train_module(cfgs, opt, out_dir)
     elif opt.mode == "test":
