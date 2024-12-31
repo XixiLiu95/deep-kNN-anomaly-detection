@@ -1,5 +1,5 @@
 
-# Data Preparation
+## Data Preparation
 1. Download the training dataset of [RSNA Pneumonia Detection Challenge](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge) and [VinBigData Chest X-ray Abnormalities Detection](https://www.kaggle.com/c/vinbigdata-chest-xray-abnormalities-detection/data) challenge. Note that we only use their training set as labels of testing set are not available. 
 2. Use `data/preprocess.py` to preprocess the two datasets respectively. The output files should be `*.png`.
 3. Move the repartition files `rsna_data.json` and `vin_data.json` to corresponding data roots and rename to `data.json`.
@@ -37,6 +37,8 @@ The `data.json` is a dictionary that storing the data repartition information:
   }
 }
 ```
+## Model Preparation
+Download pre-trained backbones [simCLRV2](https://drive.google.com/file/d/1X0mNsmZKLnkPTlk6Ji-HxC27JO1JZylS/view?usp=drive_link) and [Barlow](https://drive.google.com/file/d/1tuLpVD0dfgn15hJ4gZCp9dX9_OZ3nAur/view?usp=drive_link).
 
 **Train**  
 
@@ -53,6 +55,23 @@ python siamese_main.py --config cfgs/Vin_barlow.yaml --data_ratio  0.5  --outlie
 ```
 python siamese_main.py --config cfgs/Vin_siamese.yaml --k 1 --mode test  --geometric_mean  --data_ratio 0.5  --normalization  --epoch 99
 ```
+## Citation
+
+```
+@inproceedings{Liu2024knn,
+title = {Deep Nearest Neighbors for Anomaly Detection in Chest X-Rays},
+author = {Liu, Xixi and Alv{\'e}n, Jennifer
+and H{\"a}ggstr{\"o}m, Ida
+and and Christopher, Zach},
+booktitle = {Machine Learning in Medical Imaging},
+year = {2024}
+publisher={Springer Nature Switzerland},
+}
+```
+
+## Acknowledgement
+
+Our data preparartion code is adapted from [DDAD](https://github.com/caiyu6666/DDAD), thanks a lot for their great work!
 
  
 
